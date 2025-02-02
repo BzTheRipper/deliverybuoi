@@ -10,3 +10,4 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 
+let marker = L.marker([23.798871, 90.449504]).addTo(map);
