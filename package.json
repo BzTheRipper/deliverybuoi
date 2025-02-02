@@ -1,0 +1,23 @@
+{
+  "name": "deliverybuoi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "map.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BzTheRipper/deliverybuoi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BzTheRipper/deliverybuoi/issues"
+  },
+  "homepage": "https://github.com/BzTheRipper/deliverybuoi#readme",
+  "dependencies": {
+    "leaflet": "^1.9.4"
+  }
+}
