@@ -1,7 +1,7 @@
 // mapComtrol.js
 
 // Initialize the map
-var map = L.map('mapid').setView([23.798788, 90.449459], 16);
+var map = L.map('mapid', {zoomControl:false}).setView([23.798788, 90.449459], 16);
 
 // Add OpenStreetMap tile layer
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
