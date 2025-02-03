@@ -9,5 +9,10 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
+const customIcon_2D = L.icon(
+    {
+        
+    }
+);
 
 let marker = L.marker([23.798871, 90.449504]).addTo(map);
