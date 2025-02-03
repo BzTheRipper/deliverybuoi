@@ -1,5 +1,5 @@
 print("Hello")
 a = 9
-b = input("Give the value of b:")
+b = 2
 
 print(a-b)
