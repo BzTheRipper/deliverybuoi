@@ -1,8 +1,10 @@
-from pyscript import display
+#from pyscript import display
 
+#showCamera = False
 
-display("Hello", target="pyworks")
-a = 9
-b = 2
+#if showCamera:
+#    display("Someone is using this camera", target="pyworks")
+#elif not showCamera:
+#    display("Connected with the camera", target="pyworks")
 
-print(a-b)
+print("Hi")
