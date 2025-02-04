@@ -1,7 +1,7 @@
 // mapComtrol.js
 
 // Initialize the map
-var map = L.map('mapid', {zoomControl:false}).setView([23.798788, 90.449459], 16);
+var map = L.map('mapid', {zoomControl:false}).setView([23.795037, 90.448991], 16);
 
 // Add OpenStreetMap tile layer
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -15,4 +15,4 @@ const customIcon_2D = L.icon(
     }
 );
 
-let marker = L.marker([23.798871, 90.449504]).addTo(map);
+let marker = L.marker([23.795037, 90.448991]).addTo(map);

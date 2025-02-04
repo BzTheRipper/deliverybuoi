@@ -7,4 +7,4 @@
 #elif not showCamera:
 #    display("Connected with the camera", target="pyworks")
 
-print("Hi")
+print("Camera Is Live")
