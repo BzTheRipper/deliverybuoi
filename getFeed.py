@@ -9,13 +9,11 @@ app = Flask(__name__, template_folder='.')
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-#cap = cv2.VideoCapture("http://127.0.0.1:5123/")
 
 def generate_frames():
-    cap = cv2.VideoCapture()  # or your video source
+    cap = cv2.VideoCapture(0)  # or your video source
 
     while True:
-        cap = cv2.VideoCapture()
         success, frame = cap.read()
         if not success:
             break
@@ -25,8 +23,6 @@ def generate_frames():
             yield (b'--frame\r\n'
                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
             
-def get_frame():
-    cap = cv2.VideoCapture("http://127.0.0.1:5123/")
             
 
 @app.route('/mapComtrol.js')
@@ -47,6 +43,5 @@ def index():
 def video():
     return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 4000))
-    app.run(host="0.0.0.0", port = port)
+if __name__=="__main__":
+    app.run(debug=True)
