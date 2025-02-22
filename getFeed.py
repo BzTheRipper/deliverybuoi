@@ -11,7 +11,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
 def generate_frames():
-    cap = cv2.VideoCapture(0)  # or your video source
+    cap = cv2.VideoCapture(1)  # or your video source
 
     while True:
         success, frame = cap.read()
@@ -29,8 +29,8 @@ def generate_frames():
 def serve_map_script():
     return send_from_directory(BASE_DIR, 'mapComtrol.js')
 
-@app.route('/mapComtrol.js')
-def serve_map_script():
+@app.route('/jsCamStream.js')
+def jsCamFeedStream():
     return send_from_directory(BASE_DIR, 'jsCamStream.js')
 
 # Route to serve the CSS file
