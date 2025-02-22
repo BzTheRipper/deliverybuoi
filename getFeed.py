@@ -29,6 +29,10 @@ def generate_frames():
 def serve_map_script():
     return send_from_directory(BASE_DIR, 'mapComtrol.js')
 
+@app.route('/mapComtrol.js')
+def serve_map_script():
+    return send_from_directory(BASE_DIR, 'jsCamStream.js')
+
 # Route to serve the CSS file
 @app.route('/style.css')
 def serve_styles():
