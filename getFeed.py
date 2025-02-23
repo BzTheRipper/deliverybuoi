@@ -9,7 +9,7 @@ app = Flask(__name__, template_folder='.')
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-
+cap = cv2.VideoCapture(1)
 def generate_frames():
     cap = cv2.VideoCapture(1)  # or your video source
 
