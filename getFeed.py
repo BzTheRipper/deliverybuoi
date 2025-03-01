@@ -1,20 +1,28 @@
-from flask import Flask, render_template,Response,send_from_directory
+from fastapi import FastAPI
+from fastapi.responses import StreamingResponse
+from fastapi.staticfiles import StaticFiles
 import cv2
-from time import sleep
-#import pyscript
-import mainPython
 import os
 
-app = Flask(__name__, template_folder='.')
+app = FastAPI()
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-cap = cv2.VideoCapture(1)
-def generate_frames():
-    cap = cv2.VideoCapture(1)  # or your video source
+VIDEO_URL = 'https://developmental-julia-plain-german.trycloudflare.com/video_feed'
 
+# Serve static files (for the map script, gif, and CSS)
+app.mount("/static", StaticFiles(directory=BASE_DIR), name="static")
+
+cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+
+
+def generate_frames():
+    cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+  # or your video source
+    
     while True:
         success, frame = cap.read()
+        
         if not success:
             break
         else:
@@ -22,30 +30,29 @@ def generate_frames():
             frame = buffer.tobytes()
             yield (b'--frame\r\n'
                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
-            
-            
 
-@app.route('/mapComtrol.js')
+# Serve your custom HTML file
+@app.get("/")
+def serve_html():
+    return StreamingResponse(open(os.path.join(BASE_DIR, "index.html"), "r"), media_type="text/html")
+
+@app.get("/video")
+def video_feed():
+    return StreamingResponse(generate_frames(), media_type="multipart/x-mixed-replace; boundary=frame")
+
+# Custom routes for serving JavaScript and other static files
+@app.get("/mapComtrol.js")
 def serve_map_script():
-    return send_from_directory(BASE_DIR, 'mapComtrol.js')
+    return StreamingResponse(open(os.path.join(BASE_DIR, "mapComtrol.js"), "r"), media_type="application/javascript")
 
-@app.route('/jsCamStream.js')
-def jsCamFeedStream():
-    return send_from_directory(BASE_DIR, 'jsCamStream.js')
+@app.get("/icons/dronemovement.gif")
+def serve_gif():
+    return StreamingResponse(open(os.path.join(BASE_DIR, "icons/dronemovement.gif"), "rb"), media_type="image/gif")
 
-# Route to serve the CSS file
-@app.route('/style.css')
+@app.get("/style.css")
 def serve_styles():
-    return send_from_directory(BASE_DIR, 'style.css')    
-    
+    return StreamingResponse(open(os.path.join(BASE_DIR, "style.css"), "r"), media_type="text/css")
 
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-@app.route('/video')
-def video():
-    return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
-
-if __name__=="__main__":
-    app.run(debug=True)
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
