@@ -3,8 +3,7 @@ from fastapi.responses import StreamingResponse
 from fastapi.staticfiles import StaticFiles
 import cv2
 import os
-#raaraaaaaa
-print("raaraaaaaa")
+
 app = FastAPI()
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
