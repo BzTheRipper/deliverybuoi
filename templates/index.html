@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeliveryBuoi</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+    
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.11.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.11.1/core.js"></script>
+    
+</head>
+<body>
+    <h1>DeliveryBuoi In Live</h1>
+
+    <form action="/dummy" method="post">
+        <!-- Hidden input field to send the text "logIn.html" -->
+        <input type="hidden" name="text" value="logIn.html">
+        
+        <!-- Submit button -->
+        <button type="submit">Go to Login</button>
+    </form>
+
+
+    <h2>Python added</h2>
+    <div id="mapid"></div>
+    <div id = "pyworks"></div>
+
+    <!-- Link to the external JavaScript file -->
+    <script src="mapComtrol.js"></script>
+    
+    
+    <div id="videoContainer" data-url="http://127.0.0.1:8000/video"></div>
+
+
+    <div id="head">
+        <h1>HI Streaming the camFeed</h1>
+    </div>
+
+</body>
+</html>
