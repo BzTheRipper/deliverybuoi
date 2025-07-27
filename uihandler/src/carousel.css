@@ -1,0 +1,44 @@
+.carousel-plate {
+  width: 100%;
+  height: 500px;
+  border: 2px solid #222222;
+  background-color: #222222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 20px;
+  margin: auto;
+}
+
+.carousalImage{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.carousel-item {
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out !important;
+}
+
+.carousel-container {
+  width: 1050px;
+  margin: 0 auto;
+}
+
+.nextPrevButton {
+  width: 1050px;              /* or a fixed width like 500px */
+  display: flex;
+  justify-content: space-between; /* keeps prev on the left, next on the right */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 20px;          /* adds spacing from carousel edges */
+  pointer-events: none;     /* prevent blocking carousel clicks */
+  align-items: center;
+}
+
+.nextPrevButton button {
+  pointer-events: auto;     /* re-enable clicks for buttons */
+}

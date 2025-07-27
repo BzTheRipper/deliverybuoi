@@ -5,9 +5,28 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /*font-family: 'NHaasGroteskDSPro-65Md' !important;*/
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.custom-color{
+  background-color: rgb(233, 34, 34);
+}
+
+.navbarNav{
+  justify-content: end;
+  
+}
+
+.carousel-item{
+  
+  transition: transform 1.5s ease-in-out;
+}
+
+.carousel-item {
+  transition: opacity 1.5s ease-in-out;
 }
