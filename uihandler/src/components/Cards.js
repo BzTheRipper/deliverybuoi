@@ -1,6 +1,9 @@
+
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Pizza from '../images/Pizza.png'
+import '../styles/cards.css'
+
 
 function sizeType(n) {
     let st = ["Small", "Medium", "Large", "Family"];
@@ -10,9 +13,9 @@ function sizeType(n) {
 export default function Cards() {
     return (
         <div>
-            <div>
-                <div className="card m-5 rounded" style={{ width: "24rem", height: "450px" }}>
-                    <div style={{ height: "250px", backgroundColor: "#ff0000" }}>
+            
+                <div className="card m-5" style={{ width: "24rem", height: "450px"}}>
+                    <div className="card-whole"  style={{ height: "250px", backgroundColor: "#ff0000"}}>
                         <img
                             src={Pizza}
                             className="card-img-top img-fluid"
@@ -20,7 +23,8 @@ export default function Cards() {
                             style={{
                                 objectFit: 'contain',
                                 height: '100%',
-                                width: '100%'
+                                width: '100%',
+                                
                             }}
                         />
                     </div>
@@ -57,10 +61,9 @@ export default function Cards() {
                             </div>
                         </div>
                         <Link to="/login" class="btn btn-primary m-3">Go somewhere</Link>
-
                     </div>
                 </div>
-            </div>
+            
         </div>
     )
 }

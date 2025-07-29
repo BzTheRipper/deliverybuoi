@@ -30,3 +30,9 @@ code {
 .carousel-item {
   transition: opacity 1.5s ease-in-out;
 }
+
+* {
+  caret-color: transparent;
+  outline: none;
+  
+}
