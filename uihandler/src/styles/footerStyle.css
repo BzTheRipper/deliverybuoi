@@ -1,0 +1,6 @@
+.footer-class{
+    background-color: var(--dark-background-color-var);
+    border-color: var(--border-color-var) !important;
+    color: var(--primary-text-color);
+    
+}

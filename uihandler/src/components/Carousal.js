@@ -4,7 +4,7 @@ import Slide1Food from "../images/Slide1Food.png"
 import DroneDelivery from "../images/DroneDelivery.png"
 import Slide3 from "../images/Slide3.png"
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import '../styles/carousel.css'
+import '../styles/carouselStyle.css'
 
 
 
@@ -13,21 +13,22 @@ export default function () {
     useEffect(() => {
         let interval
         const nextButton = document.querySelector('.carousel-control-next');
-
+        const prevButton = document.querySelector('.carousel-control-prev');
+        const carouselBottomButton = document.querySelector('.carousel-indicators');
         function handleClick() {
+
             clearInterval(interval);
 
             interval = setInterval(() => {
-                if(nextButton)
-                {
+                if (nextButton || prevButton || carouselBottomButton) {
                     nextButton.click();
                 }
             }, delayTime);
         }
-
-        if (nextButton) {
+        if (nextButton || prevButton || carouselBottomButton) {
             nextButton.addEventListener('click', handleClick);
-
+            prevButton.addEventListener('click', handleClick);
+            carouselBottomButton.addEventListener('click', handleClick);
         }
         interval = setInterval(() => {
 
@@ -35,15 +36,13 @@ export default function () {
 
         }, delayTime);
 
-        
-
-        return () => {  
-            clearInterval(interval);  
+        return () => {
+            clearInterval(interval);
         };
     }, []);
 
     return (
-        
+
         <div className="carousel-container">
             <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel" data-bs-interval={delayTime}>
                 <div className="carousel-indicators">
@@ -53,6 +52,7 @@ export default function () {
 
                 </div>
                 <div className="carousel-inner">
+                    
                     <div className="carousel-item active">
                         <div className="carousel-plate">
                             <img src={Slide1Food} className="carousalImage" alt="..." />

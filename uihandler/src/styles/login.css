@@ -1,0 +1,4 @@
+.login-body{
+    background-color: var(--dark-background-color-var) !important;
+    color: var(--primary-text-color) !important;
+}

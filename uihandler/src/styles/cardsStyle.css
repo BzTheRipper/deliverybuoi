@@ -1,0 +1,45 @@
+@import url('colors.css');
+
+.card {
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  /* Make sure content does not break the border */
+  box-shadow: none;
+  /* Optional: remove Bootstrap shadow */
+  background-color: var(--dark-background-color);
+  border-color: var(--border-color-var);
+  color: var(--primary-text-color);
+  
+  transform: scale(1);
+  transition: color var(--delay-trans) ease, transform var(--delay-trans) ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  transition: color var(--delay-trans) ease, transform var(--delay-trans) ease;
+  box-shadow: var(--glow-box-shadow-color-control-lite);
+}
+
+
+/* This styles the red part */
+.card-whole {
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  overflow: hidden;
+  /*background-image: url('../images/navbarBackgroundImage6_Activated.jpg');
+  background-size: cover;
+  /* Ensures the image covers the navbar */
+  background-position: center;
+  border-color: var(--border-color-var);
+  
+  
+  /* Centers the image */
+}
+
+/* Optional: remove any shadow if it's affecting the look */
+.card,
+.card-whole {
+  box-shadow: none;
+  border-color: var(--border-color-var);
+  
+}
